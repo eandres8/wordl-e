@@ -2,7 +2,7 @@ type Props = {
   name: string;
 }
 
-export const index: React.FC<Props> = () => {
+export const ScoreModal: React.FC<Props> = () => {
   return (
     <div>index</div>
   );
