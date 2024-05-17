@@ -30,9 +30,13 @@
 
     .words-content {
       display: flex;
-      gap: 1rem;
       justify-content: center;
       padding: 1rem;
+    }
+
+    .keyboard-content {
+      display: flex;
+      justify-content: center;
     }
   }
 }

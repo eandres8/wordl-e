@@ -1,0 +1,33 @@
+.keycap {
+  min-width: 44px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: #D3D6DA;
+  padding: 0 1rem;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.5;
+  }
+
+  .letter {
+    color: #000000;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    &.success {
+      color: #FFFFFF;
+      background-color: #66A060;
+    }
+
+    &.none {
+      color: #FFFFFF;
+      background-color: #818181;
+    }
+  }
+}

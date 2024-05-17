@@ -1,7 +1,7 @@
 import './stage-page.styles.css';
 import { HelpModal } from "../HelpModal/HelpModal";
 import { ScoreModal } from "../ScoreModal/ScoreModal";
-import { WordStage } from '@src/ui/components';
+import { Keyboard, WordStage } from '@src/ui/components';
 import { useUIState } from "@src/ui/store";
 
 type Props = {
@@ -22,6 +22,9 @@ export const StagePage: React.FC<Props> = () => {
         </header>
         <section className='words-content'>
           <WordStage />
+        </section>
+        <section className='keyboard-content'>
+          <Keyboard />
         </section>
         <section>
           <HelpModal name="" />
