@@ -1,6 +1,7 @@
 import './keyboard.styles.css';
 import { Keycap } from '../Keycap/Keycap';
 import { FIRST_KEYBOARD_LINE, SECOND_KEYBOARD_LINE, THIRD_KEYBOARD_LINE } from './keyboard-letters';
+import { IconDelete } from '@src/ui/svgs';
 
 export const Keyboard: React.FC = () => {
   return (
@@ -26,7 +27,9 @@ export const Keyboard: React.FC = () => {
             <Keycap key={letter}>{letter}</Keycap>
           ))
         }
-        <Keycap>{"<[x]"}</Keycap>
+        <Keycap>
+          <IconDelete />
+        </Keycap>
       </div>
     </div>
   );

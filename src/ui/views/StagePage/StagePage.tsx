@@ -3,6 +3,7 @@ import { HelpModal } from "../HelpModal/HelpModal";
 import { ScoreModal } from "../ScoreModal/ScoreModal";
 import { Keyboard, WordStage } from '@src/ui/components';
 import { useUIState } from "@src/ui/store";
+import { IconQuestion, IconLines } from '@src/ui/svgs';
 
 type Props = {
   slug?: string;
@@ -15,9 +16,13 @@ export const StagePage: React.FC<Props> = () => {
     <main className="stage-page">
       <article className="content">
         <header className="header">
-          <span onClick={() => toggleHelpModal(true)}>help</span>
+          <span className="cursor-pointer" onClick={() => toggleHelpModal(true)}>
+            <IconQuestion />
+          </span>
           <h1>Wordl-e</h1>
-          <span onClick={() => toggleScoreModal(true)}>score</span>
+          <span className="cursor-pointer" onClick={() => toggleScoreModal(true)}>
+            <IconLines />
+          </span>
           <span>toggle</span>
         </header>
         <section className='words-content'>
