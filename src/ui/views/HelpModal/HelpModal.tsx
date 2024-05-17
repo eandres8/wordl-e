@@ -17,37 +17,35 @@ export const HelpModal: React.FC<Props> = () => {
 
   return (
     <Modal show={showHelpModal}>
-      <div className="help-modal">
-        <h2 className="modal-title">{MODAL_TEXTS.title}</h2>
-        <p className="modal-text">{MODAL_TEXTS.rule1}</p>
-        <p className="modal-text">{MODAL_TEXTS.rule2}</p>
-        <p className="modal-text">{MODAL_TEXTS.rule3}</p>
-        <p className="modal-text">{MODAL_TEXTS.rule4}</p>
-        <strong className="modal-text">{MODAL_TEXTS.example}</strong>
-        <Word value={FIRST_MODA_MOCK} />
-        <p
-          className="modal-text"
-          dangerouslySetInnerHTML={{ __html: MODAL_TEXTS.example1_subtext }}
-        />
-        <Word value={SECOND_MODA_MOCK} />
-        <p
-          className="modal-text"
-          dangerouslySetInnerHTML={{ __html: MODAL_TEXTS.example2_subtext }}
-        />
-        <Word value={THIRD_MODA_MOCK} />
-        <p
-          className="modal-text"
-          dangerouslySetInnerHTML={{ __html: MODAL_TEXTS.example3_subtext }}
-        />
-        <p className="modal-text">{MODAL_TEXTS.rule4}</p>
-        <p className="text-center modal-text">{MODAL_TEXTS.message}</p>
-        <Button
-          className="modal-button"
-          onClick={() => toggleHelpModal(false)}
-        >
-          {MODAL_TEXTS.play}
-        </Button>
-      </div>
+      <h2 className="modal-title">{MODAL_TEXTS.title}</h2>
+      <p className="modal-text">{MODAL_TEXTS.rule1}</p>
+      <p className="modal-text">{MODAL_TEXTS.rule2}</p>
+      <p className="modal-text">{MODAL_TEXTS.rule3}</p>
+      <p className="modal-text">{MODAL_TEXTS.rule4}</p>
+      <strong className="modal-text">{MODAL_TEXTS.example}</strong>
+      <Word value={FIRST_MODA_MOCK} />
+      <p
+        className="modal-text"
+        dangerouslySetInnerHTML={{ __html: MODAL_TEXTS.example1_subtext }}
+      />
+      <Word value={SECOND_MODA_MOCK} />
+      <p
+        className="modal-text"
+        dangerouslySetInnerHTML={{ __html: MODAL_TEXTS.example2_subtext }}
+      />
+      <Word value={THIRD_MODA_MOCK} />
+      <p
+        className="modal-text"
+        dangerouslySetInnerHTML={{ __html: MODAL_TEXTS.example3_subtext }}
+      />
+      <p className="modal-text">{MODAL_TEXTS.rule4}</p>
+      <p className="text-center modal-text">{MODAL_TEXTS.message}</p>
+      <Button
+        className="modal-button"
+        onClick={() => toggleHelpModal(false)}
+      >
+        {MODAL_TEXTS.play}
+      </Button>
     </Modal>
   );
 };

@@ -10,7 +10,9 @@ type Props = {
 export const Modal: React.FC<Props> = ({ children, show }) => {
   return (
     <div className={clsx('modal', show && 'show')}>
-      {children}
+      <div className="modal-content">
+        {children}
+      </div>
     </div>
   );
 }
