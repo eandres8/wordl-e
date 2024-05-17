@@ -11,15 +11,21 @@
   padding: 1rem 2rem;
 }
 
-.help-modal--title {
+.modal-title {
   font-size: 35px;
   font-weight: 800;
 }
 
-p, strong {
+.modal-text {
   width: 100%;
   font-size: 19px;
   font-weight: 400;
   line-height: 22.27px;
   text-align: left;
+}
+
+.modal-button {
+  font-size: 28px;
+  font-weight: 800;
+  min-width: 260px;
 }
