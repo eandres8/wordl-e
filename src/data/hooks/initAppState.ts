@@ -7,9 +7,9 @@ export const useInitAppState = () => {
   const {
     isFirstSignIn,
     toggleFirstSignIn,
-    setHideWord,
     getIsFinishedAttempt,
     doUpdateScore,
+    requestWord,
   } = useAppState();
   const { toggleHelpModal, toggleScoreModal } = useUIState();
   const { toggleTimerActive, timeLeft } = useTimerState();
@@ -27,20 +27,15 @@ export const useInitAppState = () => {
     if (isFirstSignIn) {
       toggleHelpModal(true);
       toggleFirstSignIn();
+      requestWord();
     }
   }, [isFirstSignIn]);
-
-  useEffect(() => {
-    // request first word
-    setHideWord("perro");
-  }, []);
 
   useEffect(() => {
     if (_isFinished) {
       toggleScoreModal(true);
       doUpdateScore();
       toggleTimerActive(false);
-      // TODO: request new word
     }
   }, [_isFinished]);
 };

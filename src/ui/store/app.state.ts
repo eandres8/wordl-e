@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
+import unidecode from 'unidecode';
 
 import { NUMBER_LETTERS, MAX_ATTEMPTS } from "@src/domain/constants";
 
@@ -20,6 +21,7 @@ type TAppState = {
   getDoMatchWord: () => boolean;
   doUpdateScore: () => void;
   clearAttempt: () => void;
+  requestWord: () => Promise<void>;
 };
 
 const createAppState = () =>
@@ -83,11 +85,21 @@ const createAppState = () =>
           }));
         },
         clearAttempt() {
+          get().requestWord();
           set(prev => ({
             ...prev,
             inputText: '',
             attemptList: [],
-          }))
+          }));
+        },
+        requestWord: async () => {
+          const response = await fetch('/words.txt');
+          const text = await response.text();
+          const wordsArray = text.split('\n').map(word => word.trim());
+          const filteredWords = wordsArray.filter(word => word.length === 5);
+          const normalizedWords = filteredWords.map(word => unidecode(word));
+          const randomWord = normalizedWords[Math.floor(Math.random() * normalizedWords.length)];
+          get().setHideWord(randomWord);
         }
       }),
       {
