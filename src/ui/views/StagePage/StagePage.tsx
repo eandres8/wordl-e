@@ -32,8 +32,8 @@ export const StagePage: React.FC<Props> = () => {
           <Keyboard />
         </section>
         <section>
-          <HelpModal name="" />
-          <ScoreModal name="" />
+          <HelpModal />
+          <ScoreModal />
         </section>
       </article>
     </main>

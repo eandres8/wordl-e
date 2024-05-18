@@ -8,11 +8,7 @@ import {
   THIRD_MODA_MOCK,
 } from "./modal-texts";
 
-type Props = {
-  name: string;
-};
-
-export const HelpModal: React.FC<Props> = () => {
+export const HelpModal: React.FC = () => {
   const { showHelpModal, toggleHelpModal } = useUIState();
 
   return (
@@ -22,7 +18,7 @@ export const HelpModal: React.FC<Props> = () => {
       <p className="modal-text">{MODAL_TEXTS.rule2}</p>
       <p className="modal-text">{MODAL_TEXTS.rule3}</p>
       <p className="modal-text">{MODAL_TEXTS.rule4}</p>
-      <strong className="modal-text">{MODAL_TEXTS.example}</strong>
+      <strong className="modal-text bold">{MODAL_TEXTS.example}</strong>
       <Word value={FIRST_MODA_MOCK} />
       <p
         className="modal-text"

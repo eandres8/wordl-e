@@ -1,35 +1,35 @@
 .modal-score-title {
-  font-size: 35px;
-  font-weight: 800;
+  font-size: 28px;
+  font-weight: 700;
 }
 
 .modal-score-button {
-  font-size: 28px;
+  font-size: 24px;
 }
 
 .modal-scores {
   display: flex;
   justify-content: space-around;
   width: 100%;
-}
+  
+  .score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-.score {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.score-value {
-  font-size: 35px;
-  font-weight: 800;
-}
-
-.score-label {
-  font-size: 21px;
+    .score-value {
+      font-size: 32px;
+      font-weight: 800;
+    }
+    
+    .score-label {
+      font-size: 24px;
+    }
+  }
 }
 
 .score-real-word {
-  font-size: 19px;
+  font-size: 18px;
   font-weight: 400;
   line-height: 22.27px;
 }
@@ -39,7 +39,7 @@
 }
 
 .score-next {
-  font-size: 19px;
+  font-size: 18px;
   font-weight: 400;
   text-align: center;
   text-transform: uppercase;
