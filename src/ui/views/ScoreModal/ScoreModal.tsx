@@ -1,16 +1,28 @@
 import './score-modal.styles.css';
 import { SCORE_TEXTS } from "./score-texts";
 import { Button, Modal, Timer } from "@src/ui/components";
-import { useAppState, useUIState } from "@src/ui/store";
+import { useAppState, useTimerState, useUIState } from "@src/ui/store";
 
 const _realWord = (word: string) => SCORE_TEXTS.real_word.replace(':value:', word);
 
 export const ScoreModal: React.FC = () => {
-  const { showScoreModal, isTimerActive, toggleScoreModal, toggleActiveTimer } = useUIState();
-  const { getCurrentWord, getIsFinishedAttempt, attempts, won } = useAppState();
+  const { showScoreModal, toggleScoreModal } = useUIState();
+  const { toggleTimerActive, isTimerActive, rebootTimer } = useTimerState();
+  const { getCurrentWord, getIsFinishedAttempt, attempts, won, clearAttempt } = useAppState();
 
-  const isFinishAttempt = getIsFinishedAttempt();
+  const hasFinishedAttempt = getIsFinishedAttempt();
   const currentWord = getCurrentWord();
+
+  const handleCloseModal = () => {
+    toggleScoreModal(false);
+    toggleTimerActive(true);
+
+    if (hasFinishedAttempt) {
+      rebootTimer();
+      clearAttempt();
+      return;
+    }
+  }
 
   return (
     <Modal show={showScoreModal}>
@@ -26,14 +38,12 @@ export const ScoreModal: React.FC = () => {
         </div>
       </div>
       {
-        isFinishAttempt && <p className="score-real-word" dangerouslySetInnerHTML={{ __html: _realWord(currentWord) }} />
+        hasFinishedAttempt &&
+          (<p className="score-real-word" dangerouslySetInnerHTML={{ __html: _realWord(currentWord) }} />)
       }
       <p className="score-next">{SCORE_TEXTS.next}</p>
-      <strong><Timer isActive={isTimerActive} /></strong>
-      <Button className="modal-score-button" onClick={() => {
-        toggleScoreModal(false);
-        toggleActiveTimer(true);
-      }}>
+      {!hasFinishedAttempt && (<Timer isActive={isTimerActive} />)}
+      <Button className="modal-score-button" onClick={handleCloseModal}>
         {SCORE_TEXTS.accept}
       </Button>
     </Modal>

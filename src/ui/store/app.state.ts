@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
-import { NUMBER_LETTERS, MAX_ATTEMPTS } from "@src/domain/constants/init-attempt";
+import { NUMBER_LETTERS, MAX_ATTEMPTS } from "@src/domain/constants";
 
 type TAppState = {
   isFirstSignIn: boolean;
@@ -19,6 +19,7 @@ type TAppState = {
   setHideWord: (newWord: string) => void;
   getDoMatchWord: () => boolean;
   doUpdateScore: () => void;
+  clearAttempt: () => void;
 };
 
 const createAppState = () =>
@@ -79,9 +80,15 @@ const createAppState = () =>
             ...prev,
             attempts: prev.attempts + 1,
             won: isWinner ? prev.won + 1 : prev.won,
-            attemptList: [],
           }));
         },
+        clearAttempt() {
+          set(prev => ({
+            ...prev,
+            inputText: '',
+            attemptList: [],
+          }))
+        }
       }),
       {
         name: "app-state",
