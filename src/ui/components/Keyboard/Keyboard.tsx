@@ -5,7 +5,7 @@ import { IconDelete } from '@src/ui/svgs';
 import { useAppState } from '@src/ui/store';
 
 export const Keyboard: React.FC = () => {
-  const { setLetter } = useAppState();
+  const { setLetter, removeLetter } = useAppState();
 
   const handleClick = (letter: string) => () => setLetter(letter);
 
@@ -32,7 +32,7 @@ export const Keyboard: React.FC = () => {
             <Keycap key={`third_${letter}_${idx}`} onClick={handleClick(letter)}>{letter}</Keycap>
           ))
         }
-        <Keycap>
+        <Keycap onClick={removeLetter}>
           <IconDelete />
         </Keycap>
       </div>

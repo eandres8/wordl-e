@@ -3,7 +3,7 @@ import {
   TWordOptonStatus,
 } from "@src/domain/types/word-option.type";
 import { useAppState } from "@src/ui/store";
-import { NUMBER_LETTERS, MAX_ATTEMPTS } from "../constants/init-attempt";
+import { NUMBER_LETTERS, MAX_ATTEMPTS } from "../../domain/constants/init-attempt";
 
 const LIMIT_ATTEMPTS = MAX_ATTEMPTS - 1;
 

@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
-import { NUMBER_LETTERS, MAX_ATTEMPTS } from "@src/data/constants/init-attempt";
+import { NUMBER_LETTERS, MAX_ATTEMPTS } from "@src/domain/constants/init-attempt";
 
 type TAppState = {
   isFirstSignIn: boolean;
@@ -12,6 +12,7 @@ type TAppState = {
   won: number;
   toggleFirstSignIn: () => void;
   setLetter: (letter: string) => void;
+  removeLetter: () => void;
   setAttempt: (word: string) => void;
   getCurrentWord: () => string;
   getIsFinishedAttempt: () => boolean;
@@ -30,9 +31,10 @@ const createAppState = () =>
         wordHistory: [],
         attempts: 0,
         won: 0,
-        toggleFirstSignIn: () =>
-          set((prev) => ({ ...prev, isFirstSignIn: false })),
-        setLetter: (letter) => {
+        toggleFirstSignIn() {
+          set((prev) => ({ ...prev, isFirstSignIn: false }))
+        },
+        setLetter(letter) {
           const oldInput = get().inputText;
           const newText = oldInput + letter;
 
@@ -42,7 +44,10 @@ const createAppState = () =>
           }));
           get().setAttempt(newText);
         },
-        setAttempt: (word) => {
+        removeLetter() {
+          set(prev => ({ ...prev, inputText: prev.inputText.slice(0, -1) }));
+        },
+        setAttempt(word) {
           if (word.length < 5) {
             return;
           }
@@ -57,15 +62,17 @@ const createAppState = () =>
           }));
         },
         getCurrentWord: () => get().wordHistory.at(-1) ?? "",
-        getIsFinishedAttempt: () => {
+        getIsFinishedAttempt() {
           return (
             get().getDoMatchWord() ||
             get().attemptList.length === MAX_ATTEMPTS
           );
         },
-        setHideWord: (word) => set(prev => ({ ...prev, wordHistory: [...prev.wordHistory, word] })),
+        setHideWord(word){
+          set(prev => ({ ...prev, wordHistory: [...prev.wordHistory, word] }))
+        },
         getDoMatchWord: () => get().getCurrentWord() === get().attemptList.at(-1),
-        doUpdateScore: () => {
+        doUpdateScore() {
           const isWinner = get().getDoMatchWord();
 
           set(prev => ({

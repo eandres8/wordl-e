@@ -15,6 +15,7 @@ export const useInitAppState = () => {
 
   const _isFinished = getIsFinishedAttempt();
 
+
   useEffect(() => {
     if (isFirstSignIn) {
       toggleHelpModal(true);
@@ -30,7 +31,6 @@ export const useInitAppState = () => {
     if (_isFinished) {
       toggleScoreModal(true);
       doUpdateScore();
-      // TODO: update score state
       // TODO: request new word
     }
   }, [_isFinished]);
