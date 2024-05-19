@@ -1,37 +1,13 @@
-.modal-score-title {
-  font-size: 28px;
-  font-weight: 700;
-}
+.score {
+  @apply flex flex-col items-center;
 
-.modal-score-button {
-  font-size: 24px;
-}
-
-.modal-scores {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  
-  .score {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    .score-value {
-      font-size: 32px;
-      font-weight: 800;
-    }
-    
-    .score-label {
-      font-size: 24px;
-    }
+  .score-value {
+    @apply text-3xl	font-extrabold;
   }
-}
-
-.score-real-word {
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 22.27px;
+  
+  .score-label {
+    @apply text-2xl;
+  }
 }
 
 .score-real-word strong {
@@ -39,8 +15,5 @@
 }
 
 .score-next {
-  font-size: 18px;
-  font-weight: 400;
-  text-align: center;
-  text-transform: uppercase;
+  @apply font-normal text-center text-lg uppercase;
 }

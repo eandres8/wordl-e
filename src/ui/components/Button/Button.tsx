@@ -1,7 +1,5 @@
 import clsx from 'clsx';
 
-import './button.styles.css';
-
 type Props = {
   children: React.ReactNode;
   onClick: React.MouseEventHandler<HTMLButtonElement>;
@@ -13,7 +11,7 @@ export const Button: React.FC<Props> = ({ children, onClick, className }) => {
     <button
       type="button"
       onClick={onClick}
-      className={clsx('btn btn-primary', className)}
+      className={clsx('bg-fern-400 hover:bg-fern-500 font-bold py-2 px-4 rounded-xl text-white', className)}
     >
       { children }
     </button>

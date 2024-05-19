@@ -13,7 +13,7 @@ export const HelpModal: React.FC = () => {
 
   return (
     <Modal show={showHelpModal}>
-      <h2 className="modal-title">{MODAL_TEXTS.title}</h2>
+      <h2 className="text-3xl font-extrabold">{MODAL_TEXTS.title}</h2>
       <p className="modal-text">{MODAL_TEXTS.rule1}</p>
       <p className="modal-text">{MODAL_TEXTS.rule2}</p>
       <p className="modal-text">{MODAL_TEXTS.rule3}</p>
@@ -37,7 +37,7 @@ export const HelpModal: React.FC = () => {
       <p className="modal-text">{MODAL_TEXTS.rule4}</p>
       <p className="text-center modal-text">{MODAL_TEXTS.message}</p>
       <Button
-        className="modal-button"
+        className="modal-button text-2xl"
         onClick={() => toggleHelpModal(false)}
       >
         {MODAL_TEXTS.play}

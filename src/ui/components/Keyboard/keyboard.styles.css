@@ -1,15 +1,7 @@
 .keyboard {
-  background-color: #DADCE04D;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  border-radius: 20px;
-  width: 100%;
 
   .row {
-    display: flex;
-    gap: 0.5rem;
-    padding: 0.5rem 1.5rem;
+    @apply flex gap-2 px-6 py-2;
 
     &.center {
       justify-content: center;

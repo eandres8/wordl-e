@@ -1,34 +1,42 @@
-import './stage-page.styles.css';
 import { HelpModal } from "../HelpModal/HelpModal";
 import { ScoreModal } from "../ScoreModal/ScoreModal";
-import { Keyboard, WordStage } from '@src/ui/components';
+import { Keyboard, ToggleSwitch, WordStage } from "@src/ui/components";
 import { useUIState } from "@src/ui/store";
-import { IconQuestion, IconLines } from '@src/ui/svgs';
+import { IconQuestion, IconLines } from "@src/ui/svgs";
 
 type Props = {
   slug?: string;
-}
+};
 
 export const StagePage: React.FC<Props> = () => {
-  const { toggleHelpModal, toggleScoreModal } = useUIState();
+  const { toggleHelpModal, toggleScoreModal, isDarkTheme, toggleDarkTheme } =
+    useUIState();
 
   return (
-    <main className="stage-page">
-      <article className="content">
-        <header className="header">
-          <span className="cursor-pointer" onClick={() => toggleHelpModal(true)}>
+    <main className="pt-8 flex justify-center gap-4">
+      <article className="max-w-2xl flex flex-col p-4 gap-4 w-full">
+        <header className="bg-gray-100 flex align-center gap-4 rounded-2xl py-4 px-6">
+          <span
+            className="cursor-pointer flex items-center"
+            onClick={() => toggleHelpModal(true)}
+          >
             <IconQuestion />
           </span>
-          <h1>Wordl-e</h1>
-          <span className="cursor-pointer" onClick={() => toggleScoreModal(true)}>
+          <h1 className="flex-1 text-center font-semibold text-2xl">Wordl-e</h1>
+          <span
+            className="cursor-pointer flex items-center"
+            onClick={() => toggleScoreModal(true)}
+          >
             <IconLines />
           </span>
-          <span>toggle</span>
+          <span className="flex items-center">
+            <ToggleSwitch enabled={isDarkTheme} onChange={toggleDarkTheme} />
+          </span>
         </header>
-        <section className='words-content'>
+        <section className="flex justify-center p-4">
           <WordStage />
         </section>
-        <section className='keyboard-content'>
+        <section className="flex justify-center">
           <Keyboard />
         </section>
         <section>
@@ -38,4 +46,4 @@ export const StagePage: React.FC<Props> = () => {
       </article>
     </main>
   );
-}
+};

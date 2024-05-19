@@ -13,8 +13,6 @@ export const Timer: React.FC<Props> = ({ isActive }) => {
     initTimer,
     stopTimer
   } = useTimerState();
-  // @remove
-  console.log({ timeLeft });
 
   useEffect(() => {
     if (isActive && timeLeft > 0) {

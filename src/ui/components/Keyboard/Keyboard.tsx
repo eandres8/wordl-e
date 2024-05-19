@@ -10,7 +10,7 @@ export const Keyboard: React.FC = () => {
   const handleClick = (letter: string) => () => setLetter(letter);
 
   return (
-    <div className="keyboard">
+    <div className="keyboard bg-gray-100 p-6 flex flex-col rounded-2xl w-full">
       <div className="row center">
         {
           FIRST_KEYBOARD_LINE.split('').map((letter, idx) => (

@@ -26,8 +26,8 @@ export const ScoreModal: React.FC = () => {
 
   return (
     <Modal show={showScoreModal}>
-      <h2 className="modal-score-title">{SCORE_TEXTS.title}</h2>
-      <div className="modal-scores">
+      <h2 className="text-3xl font-bold">{SCORE_TEXTS.title}</h2>
+      <div className="flex justify-around	w-full">
         <div className="score">
           <span className="score-value">{attempts}</span>
           <span className="score-label">{SCORE_TEXTS.played}</span>
@@ -39,11 +39,11 @@ export const ScoreModal: React.FC = () => {
       </div>
       {
         hasFinishedAttempt &&
-          (<p className="score-real-word" dangerouslySetInnerHTML={{ __html: _realWord(currentWord) }} />)
+          (<p className="score-real-word text-lg font-normal" dangerouslySetInnerHTML={{ __html: _realWord(currentWord) }} />)
       }
       <p className="score-next">{SCORE_TEXTS.next}</p>
       {!hasFinishedAttempt && (<Timer isActive={isTimerActive} />)}
-      <Button className="modal-score-button" onClick={handleCloseModal}>
+      <Button className="text-2xl" onClick={handleCloseModal}>
         {SCORE_TEXTS.accept}
       </Button>
     </Modal>

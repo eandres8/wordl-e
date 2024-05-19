@@ -6,6 +6,7 @@ type TUIState = {
   showScoreModal: boolean;
   toggleHelpModal: (value: boolean) => void;
   toggleScoreModal: (value: boolean) => void;
+  toggleDarkTheme: (value: boolean) => void;
 };
 
 const createUIState = () =>
@@ -13,8 +14,9 @@ const createUIState = () =>
     isDarkTheme: false,
     showHelpModal: false,
     showScoreModal: false,
-    toggleHelpModal: (value) => set(() => ({ showHelpModal: value })),
-    toggleScoreModal: (value) => set(() => ({ showScoreModal: value })),
+    toggleHelpModal: (showHelpModal) => set(() => ({ showHelpModal })),
+    toggleScoreModal: (showScoreModal) => set(() => ({ showScoreModal })),
+    toggleDarkTheme: (isDarkTheme) => set(() => ({ isDarkTheme })),
   }));
 
 type TUIStores = Record<string, ReturnType<typeof createUIState>>;

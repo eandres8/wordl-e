@@ -1,37 +1,19 @@
-.word {
-  display: flex;
-  gap: 0.5rem;
+.letter {
+  @apply w-16	h-16 bg-gray-200 uppercase ;
 
-  .letter {
-    width: 72px;
-    height: 72px;
-    border-radius: 5px;
-    font-size: 32px;
-    font-weight: 800;
-    text-transform: uppercase;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #939B9F4D;
-
-    &.none {
-      background-color: #FFFFFF;
-      border: 1px solid #000000;
-    }
-    
-    &.success {
-      background-color: #6AAA64;
-      border-color: #6AAA64;
-    }
-    
-    &.wrong-position {
-      background-color: #CEB02C;
-      border-color: #CEB02C;
-    }
-    
-    &.not-exist {
-      background-color: #939B9F;
-      border-color: #939B9F;
-    }
+  &.none {
+    @apply bg-gray-200 border border-gray-900 ;
+  }
+  
+  &.success {
+    @apply bg-fern-400 border border-fern-400 ;
+  }
+  
+  &.wrong-position {
+    @apply bg-yellow-400 border border-yellow-400 ;
+  }
+  
+  &.not-exist {
+    @apply bg-gray-400 border border-gray-400 ;
   }
 }
