@@ -1,4 +1,29 @@
-# React + TypeScript + Vite
+# Wordl-e
+
+Web game for guess a random hide word
+
+## Dependencies
+React
+Zustand
+Tailwind
+
+## Run server
+
+1. Install dependencies
+```bash
+npm install
+```
+
+2. Run local server
+```bash
+npm run dev
+```
+
+## Example
+
+![Screenshot](screenshot.png)
+
+## React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
