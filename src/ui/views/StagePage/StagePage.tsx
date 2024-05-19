@@ -13,21 +13,21 @@ export const StagePage: React.FC<Props> = () => {
     useUIState();
 
   return (
-    <main className="pt-8 flex justify-center gap-4">
+    <main className="pt-8 flex justify-center gap-4 dark:bg-ebony-950 h-screen">
       <article className="max-w-2xl flex flex-col p-4 gap-4 w-full">
-        <header className="bg-gray-100 flex align-center gap-4 rounded-2xl py-4 px-6">
+        <header className="bg-gray-100 dark:bg-ebony-700 flex align-center gap-4 rounded-2xl py-4 px-6">
           <span
             className="cursor-pointer flex items-center"
             onClick={() => toggleHelpModal(true)}
           >
-            <IconQuestion />
+            <IconQuestion dark={isDarkTheme} />
           </span>
-          <h1 className="flex-1 text-center font-semibold text-2xl">Wordl-e</h1>
+          <h1 className="flex-1 text-center font-semibold text-2xl dark:text-white">Wordl-e</h1>
           <span
             className="cursor-pointer flex items-center"
             onClick={() => toggleScoreModal(true)}
           >
-            <IconLines />
+            <IconLines dark={isDarkTheme} />
           </span>
           <span className="flex items-center">
             <ToggleSwitch enabled={isDarkTheme} onChange={toggleDarkTheme} />

@@ -8,8 +8,8 @@ export const WordStage: React.FC = () => {
   return (
     <div className="flex flex-col gap-2">
       {
-        listWords.map(word => (
-          <Word value={word} />
+        listWords.map((word, idx) => (
+          <Word key={`word_${idx}`} value={word} />
         ))
       }
     </div>

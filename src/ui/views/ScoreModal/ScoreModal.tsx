@@ -7,7 +7,7 @@ const _realWord = (word: string) => SCORE_TEXTS.real_word.replace(':value:', wor
 
 export const ScoreModal: React.FC = () => {
   const { showScoreModal, toggleScoreModal } = useUIState();
-  const { toggleTimerActive, isTimerActive, rebootTimer } = useTimerState();
+  const { toggleTimerActive, isTimerActive, rebootTimer, timeLeft } = useTimerState();
   const { getCurrentWord, getIsFinishedAttempt, attempts, won, clearAttempt } = useAppState();
 
   const hasFinishedAttempt = getIsFinishedAttempt();
@@ -17,7 +17,7 @@ export const ScoreModal: React.FC = () => {
     toggleScoreModal(false);
     toggleTimerActive(true);
 
-    if (hasFinishedAttempt) {
+    if (hasFinishedAttempt || timeLeft === 0) {
       rebootTimer();
       clearAttempt();
       return;

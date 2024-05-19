@@ -1,5 +1,5 @@
 .letter {
-  @apply w-16	h-16 bg-gray-200 uppercase ;
+  @apply w-16	h-16 bg-gray-200 dark:bg-gray-600 uppercase;
 
   &.none {
     @apply bg-gray-200 border border-gray-900 ;

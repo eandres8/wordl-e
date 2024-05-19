@@ -16,7 +16,10 @@ const createUIState = () =>
     showScoreModal: false,
     toggleHelpModal: (showHelpModal) => set(() => ({ showHelpModal })),
     toggleScoreModal: (showScoreModal) => set(() => ({ showScoreModal })),
-    toggleDarkTheme: (isDarkTheme) => set(() => ({ isDarkTheme })),
+    toggleDarkTheme: (isDarkTheme) => {
+      set(() => ({ isDarkTheme }));
+      document.body.classList.toggle("dark");
+    },
   }));
 
 type TUIStores = Record<string, ReturnType<typeof createUIState>>;

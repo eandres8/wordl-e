@@ -2,15 +2,16 @@ import './keyboard.styles.css';
 import { Keycap } from '../Keycap/Keycap';
 import { FIRST_KEYBOARD_LINE, SECOND_KEYBOARD_LINE, THIRD_KEYBOARD_LINE } from './keyboard-letters';
 import { IconDelete } from '@src/ui/svgs';
-import { useAppState } from '@src/ui/store';
+import { useAppState, useUIState } from '@src/ui/store';
 
 export const Keyboard: React.FC = () => {
   const { setLetter, removeLetter } = useAppState();
+  const { isDarkTheme } = useUIState();
 
   const handleClick = (letter: string) => () => setLetter(letter);
 
   return (
-    <div className="keyboard bg-gray-100 p-6 flex flex-col rounded-2xl w-full">
+    <div className="keyboard bg-gray-100 p-6 flex flex-col rounded-2xl w-full dark:bg-ebony-800">
       <div className="row center">
         {
           FIRST_KEYBOARD_LINE.split('').map((letter, idx) => (
@@ -33,7 +34,7 @@ export const Keyboard: React.FC = () => {
           ))
         }
         <Keycap onClick={removeLetter}>
-          <IconDelete />
+          <IconDelete dark={isDarkTheme} />
         </Keycap>
       </div>
     </div>

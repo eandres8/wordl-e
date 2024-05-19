@@ -1,6 +1,6 @@
 import "./help-modal.styles.css";
 import { Button, Modal, Word } from "@src/ui/components";
-import { useUIState } from "@src/ui/store";
+import { useTimerState, useUIState } from "@src/ui/store";
 import {
   MODAL_TEXTS,
   FIRST_MODA_MOCK,
@@ -10,6 +10,13 @@ import {
 
 export const HelpModal: React.FC = () => {
   const { showHelpModal, toggleHelpModal } = useUIState();
+  const { initTimer, toggleTimerActive } = useTimerState();
+
+  const handleContinue = () => {
+    toggleHelpModal(false);
+    toggleTimerActive(true);
+    initTimer();
+  }
 
   return (
     <Modal show={showHelpModal}>
@@ -38,7 +45,7 @@ export const HelpModal: React.FC = () => {
       <p className="text-center modal-text">{MODAL_TEXTS.message}</p>
       <Button
         className="modal-button text-2xl"
-        onClick={() => toggleHelpModal(false)}
+        onClick={handleContinue}
       >
         {MODAL_TEXTS.play}
       </Button>

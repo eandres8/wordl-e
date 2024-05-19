@@ -78,6 +78,9 @@ const createAppState = () =>
         doUpdateScore() {
           const isWinner = get().getDoMatchWord();
 
+          // @remove
+          console.log({ isWinner });
+
           set(prev => ({
             ...prev,
             attempts: prev.attempts + 1,

@@ -8,7 +8,7 @@ type Props = {
 }
 
 const _letterClass = (status: TWordOptonStatus) => clsx(
-  'letter rounded-md flex justify-center items-center text-3xl font-extrabold text-gray-900',
+  'letter rounded-md flex justify-center items-center text-3xl font-extrabold text-gray-900 dark:text-white',
   status === 'NONE' && 'none',
   status === 'SUCCESS' && 'success',
   status === 'WRONG_POSITION' && 'wrong-position',
